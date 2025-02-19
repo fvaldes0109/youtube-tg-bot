@@ -11,4 +11,4 @@ if __name__ == '__main__':
     
     init_routes(app)
 
-    app.run_polling()
+    app.run_polling() #webhook() for webhook mode
