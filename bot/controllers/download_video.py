@@ -16,7 +16,7 @@ async def download_video(update: Update, input_data: str) -> None:
     try:
         
         await update.callback_query.message.reply_text('Downloading video...')
-        yt = YouTube(url)
+        yt = YouTube(url, 'WEB')
         stream = yt.streams.filter(file_extension='mp4', res=quality).first()
         filename = uuid.uuid4().hex + '.mp4'
         stream.download(output_path='/tmp', filename=filename)

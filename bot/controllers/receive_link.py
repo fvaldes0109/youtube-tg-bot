@@ -9,7 +9,7 @@ async def receive_link(update: Update, message_text: str) -> None:
         await update.message.reply_text("Please send a valid YouTube link")
         return
     
-    yt = YouTube(message_text)
+    yt = YouTube(message_text, 'WEB')
     title, thumbnail = yt.title, yt.thumbnail_url
     streams = yt.streams.filter(file_extension="mp4").order_by("resolution").desc()
     qualities = [f"{stream.resolution}" for stream in streams]
